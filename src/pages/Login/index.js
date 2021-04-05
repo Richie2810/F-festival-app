@@ -62,7 +62,7 @@ export default function SignUp() {
           </Button>
         </Form.Group>
         <Link to="/signup" style={{ textAlign: "center" }}>
-          Click here to sign up
+          Click here to sign up and purchase a ticket
         </Link>
       </Form>
     </Container>

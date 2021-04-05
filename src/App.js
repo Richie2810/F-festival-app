@@ -12,15 +12,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import { Jumbotron } from "react-bootstrap";
+import HomePage from "./pages/HomePage/HomePage";
+import StagesPage from "./pages/StagesPage/StagesPage";
 
-const Home = () => (
+
+
+const aMap = () => (
   <Jumbotron>
-    <h1>Home</h1>
+    <h1 className="head">Map</h1>
   </Jumbotron>
 );
-const Other = () => (
+const Acts = () => (
   <Jumbotron>
-    <h1>Other</h1>
+    <h1 className="head">Acts</h1>
   </Jumbotron>
 );
 
@@ -38,8 +42,10 @@ function App() {
       <MessageBox />
       {isLoading ? <Loading /> : null}
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/other" component={Other} />
+        <Route exact path="/" component={HomePage} />
+        <Route path="/map" component={aMap} />
+        <Route path="/stages" component={StagesPage} />
+        <Route path="/acts" component={Acts} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
       </Switch>
