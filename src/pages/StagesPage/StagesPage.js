@@ -19,7 +19,7 @@ export default function StagesPage() {
         <div>
             <Jumbotron>
                 <Container>
-                    <Card>
+                    <Card style={{ backgroundImage: `url('https://festivalfans.nl/wp-content/uploads/2019/10/71748125_2448532212081834_2889379513978847232_o-665x250.jpg')`, backgroundRepeat:"no-repeat", backgroundSize: "cover", backgroundPosition: 'center'}}>
                         <Card.Img />
                         <Card.Body>
                             <Card.Title>

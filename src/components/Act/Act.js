@@ -4,7 +4,7 @@ import { Button, Card, Col, ListGroup, Row } from 'react-bootstrap'
 export default function Act(props) {
     return (
         <ListGroup>
-            <ListGroup.Item>
+            <ListGroup.Item style={{ backgroundImage: `url(${props.image})`, backgroundSize:'auto', backgroundPosition: "center"}}>
                 <Row>
                     <Col>
                         {props.name}<br></br>
