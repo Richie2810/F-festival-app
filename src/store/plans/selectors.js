@@ -1,0 +1,1 @@
+export const selectUsersPlans = state => state.plans.allPlans

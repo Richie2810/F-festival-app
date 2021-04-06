@@ -16,8 +16,6 @@ import HomePage from "./pages/HomePage/HomePage";
 import StagesPage from "./pages/StagesPage/StagesPage";
 import Schedule from "./pages/Schedule/Schedule";
 
-
-
 const aMap = () => (
   <Jumbotron>
     <h1 className="head">Map</h1>

@@ -25,6 +25,7 @@ export const getUsersPlans = () => async (dispatch, getState) => {
             }
         })
         console.log(response.data)
+        dispatch(userPlansFetched(response.data))
         dispatch(appDoneLoading())
     } catch(error) {
         if (error.response) {
