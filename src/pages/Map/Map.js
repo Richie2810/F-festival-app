@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Container, Jumbotron } from 'react-bootstrap'
+import { Container, Jumbotron } from 'react-bootstrap'
 import MapPng from '../../Images/Map.png'
 
 export default function Map() {
@@ -9,7 +9,7 @@ export default function Map() {
                 <h1 className="head">Map</h1>
             </Jumbotron>
             <Container>
-                <img src={MapPng} usemap="#stages"/>
+                <img src={MapPng} useMap="#stages" alt='festival map'/>
                 <map name='stages'>
                     <area target="_self" alt="Stage 1" title="Stage 1" href="/stage/1" coords="125,94,200,154" shape="rect"/>
                     <area target="_self" alt="Stage 2" title="Stage 2" href="/stage/2" coords="275,64,364,123" shape="rect"/>

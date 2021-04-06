@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Jumbotron, Card, Dropdown, ButtonGroup, Button, Form, Container } from 'react-bootstrap'
+import { Jumbotron, Card, Form, Container } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { getStages } from '../../store/stages/actions'
 import { selectStages } from '../../store/stages/selectors'
