@@ -15,14 +15,8 @@ import { Jumbotron } from "react-bootstrap";
 import HomePage from "./pages/HomePage/HomePage";
 import StagesPage from "./pages/StagesPage/StagesPage";
 import Schedule from "./pages/Schedule/Schedule";
+import aMap from './pages/Map/Map'
 
-
-
-const aMap = () => (
-  <Jumbotron>
-    <h1 className="head">Map</h1>
-  </Jumbotron>
-);
 const Acts = () => (
   <Jumbotron>
     <h1 className="head">Acts</h1>
