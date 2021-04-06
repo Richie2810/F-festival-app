@@ -1,0 +1,1 @@
+export const selectStages = state => state.stages.allStages
