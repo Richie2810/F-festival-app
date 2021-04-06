@@ -24,6 +24,7 @@ export default function Navigation() {
           <NavbarItem path="/map" linkText="Map" />
           <NavbarItem path="/stages" linkText="Stages" />
           <NavbarItem path="/acts" linkText="Acts" />
+          {token ? <NavbarItem path="/schedule" linkText="Schedule" /> : null}
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>

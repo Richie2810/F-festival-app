@@ -14,6 +14,7 @@ import { getUserWithStoredToken } from "./store/user/actions";
 import { Jumbotron } from "react-bootstrap";
 import HomePage from "./pages/HomePage/HomePage";
 import StagesPage from "./pages/StagesPage/StagesPage";
+import Schedule from "./pages/Schedule/Schedule";
 
 
 
@@ -48,6 +49,7 @@ function App() {
         <Route path="/acts" component={Acts} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
+        <Route path="/schedule" component={Schedule} />
       </Switch>
     </div>
   );
