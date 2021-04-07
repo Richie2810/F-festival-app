@@ -1,38 +1,126 @@
 import React, { useEffect } from 'react'
-import { Jumbotron } from 'react-bootstrap'
+import { Button, Card, Col, Container, Jumbotron, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectUsersPlans } from '../../store/plans/selectors'
+import { selectUsersPlansFriday,selectUsersPlansSaturday,selectUsersPlansSunday } from '../../store/plans/selectors'
 import { getUsersPlans } from '../../store/plans/actions'
 import ActSchedule from '../../components/ActSchedule/ActSchedule'
+import {
+    Timeline,
+    Events,
+    TextEvent,
+  } from '@merc/react-timeline';
 
 export default function Schedule() {
-const dispatch = useDispatch()
-const plans = useSelector(selectUsersPlans)
-console.log(plans)
+    const dispatch = useDispatch()
+    const plansFriday = useSelector(selectUsersPlansFriday)
+    const plansSaturday = useSelector(selectUsersPlansSaturday)
+    const plansSunday = useSelector(selectUsersPlansSunday)
+    console.log('this is plans',plansSunday)
 
     useEffect(()=>{
         dispatch(getUsersPlans())
-    },[dispatch])
+
+    },[])
 
     return (
         <div>
             <Jumbotron>
                 <h1 className="head">Schedule</h1>
             </Jumbotron>
-            {plans ? plans.map(act => {
-                return (
-                    <ActSchedule 
-                        key={act.id}
-                        name={act.name}
-                        day={act.day}
-                        start={act.start_time}
-                        end={act.end_time}
-                        description={act.description}
-                        image={act.image}
-                        video={act.video}
-                    />
-                )
-            }):null}
+            <Container>
+                <Row>
+                    <Col>
+                    <Card>
+                        <Card.Title>
+                            Friday
+                        </Card.Title>
+                    
+                            <Timeline>
+                                <Events>
+                                    {plansFriday.length !== 0 ? plansFriday.map(act => {
+                                        return (
+                                            <ActSchedule 
+                                                key={act.id}
+                                                id={act.id}
+                                                name={act.name}
+                                                day={act.day}
+                                                start={act.start_time}
+                                                end={act.end_time}
+                                                description={act.description}
+                                                image={act.image}
+                                                video={act.video}
+                                            />
+                                        )
+                                    })
+                                        :
+                                        <TextEvent date="" text="Make some plans to see acts on Friday!" />
+                                    }
+                                </Events>
+                            </Timeline>
+                        </Card>
+                    </Col>
+                    <Col>
+                    <Card>
+                        <Card.Title>
+                            Saturday
+                        </Card.Title>
+                    
+                            <Timeline>
+                                <Events>
+                                    {plansSaturday.length !== 0 ? plansSaturday.map(act => {
+                                        return (
+                                            <ActSchedule 
+                                                key={act.id}
+                                                id={act.id}
+                                                name={act.name}
+                                                day={act.day}
+                                                start={act.start_time}
+                                                end={act.end_time}
+                                                description={act.description}
+                                                image={act.image}
+                                                video={act.video}
+                                            />
+                                        )
+                                    })
+                                        :
+                                        <TextEvent date="" text="Make some plans to see acts on Saturday!" />
+                                    }
+                                </Events>
+                            </Timeline>
+                        </Card>
+                    </Col>
+                    <Col>
+                    <Card>
+                        <Card.Title>
+                            Sunday
+                        </Card.Title>
+                    
+                            <Timeline>
+                                <Events>
+                                    {plansSunday.length !== 0 ? plansSunday.map(act => {
+                                        return (
+                                            <ActSchedule 
+                                                key={act.id}
+                                                id={act.id}
+                                                name={act.name}
+                                                day={act.day}
+                                                start={act.start_time}
+                                                end={act.end_time}
+                                                description={act.description}
+                                                image={act.image}
+                                                video={act.video}
+                                            />
+                                        )
+                                    })
+                                        : <TextEvent date="" text="Make some plans to see acts on Sunday!" />
+                                        }
+                                </Events>
+                            </Timeline>
+                        </Card>
+                    </Col>
+                </Row>
+
+            </Container> 
         </div>
     )
 }

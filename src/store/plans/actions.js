@@ -7,10 +7,11 @@ import {
 } from "../appState/actions";
 import { selectUser } from "../user/selectors";
 
-const userPlansFetched = plans => ({
+const userPlansFetchedFriday = plans => ({
     type: 'plans/fetched',
     payload :plans
 })
+
 
 export const getUsersPlans = () => async (dispatch, getState) => {
     dispatch(appLoading())
@@ -22,8 +23,8 @@ export const getUsersPlans = () => async (dispatch, getState) => {
                 Authorization: `Bearer ${token}`
             }
         })
-        console.log(response.data)
-        dispatch(userPlansFetched(response.data))
+        //console.log('friday',response.data)
+        dispatch(userPlansFetchedFriday(response.data))
         dispatch(appDoneLoading())
     } catch(error) {
         if (error.response) {
