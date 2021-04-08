@@ -13,7 +13,7 @@ export default function HomePage() {
             <Jumbotron>
                 <h1 className="head">Welcome to Musopolis Festival</h1>
                 <h5 className="head">Come enjoy our festival by creating a schedule and not missing any of acts on our multible stages</h5>
-                {token ? null : <p className="head"><Link to="/signup">Login here or sign up</Link></p>}
+                {token ? null : <p className="head"><Link to="/login">Login here or sign up</Link></p>}
             </Jumbotron>
             {/* <NewsFeed />
             <SocialMedia /> TODO */}

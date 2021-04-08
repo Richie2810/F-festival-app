@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-
     UrlButton,
     ImageEvent,
   } from '@merc/react-timeline';

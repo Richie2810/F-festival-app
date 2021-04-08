@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Button, Card, Col, Container, Jumbotron, Row } from 'react-bootstrap'
+import { Card, Col, Container, Jumbotron, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectUsersPlansFriday,selectUsersPlansSaturday,selectUsersPlansSunday } from '../../store/plans/selectors'
 import { getUsersPlans } from '../../store/plans/actions'
@@ -19,8 +19,7 @@ export default function Schedule() {
 
     useEffect(()=>{
         dispatch(getUsersPlans())
-
-    },[])
+    },[dispatch])
 
     return (
         <div>

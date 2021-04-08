@@ -1,12 +1,12 @@
 import React from 'react'
-import { Card, Container } from 'react-bootstrap'
+import { Card, Col, Container } from 'react-bootstrap'
 import Acts from '../../components/Act/Act'
 import './Stage.css'
 
 export default function Stage(props) {
     console.log('acts', props.acts)
     return (
-        <div>
+        <Col>
             <Container className='stages'>
                 <Card style={{ width: '38rem' }}>
                     <Card.Title>
@@ -17,7 +17,7 @@ export default function Stage(props) {
                     </Card.Text>
                     <Container>
                         <Card>
-                            <Card.Header>STAGES</Card.Header>
+                            <Card.Header>{props.name}</Card.Header>
                             {props.acts ? props.acts.map(act=>{    
                                 return (
                                     <Acts 
@@ -36,6 +36,6 @@ export default function Stage(props) {
                     </Container>
                 </Card>
             </Container>
-        </div>
+        </Col>
     )
 }

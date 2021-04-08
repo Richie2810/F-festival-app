@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Jumbotron, Card, Form, Container } from 'react-bootstrap'
+import { Jumbotron, Card, Form, Container, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { getStages } from '../../store/stages/actions'
 import { selectStages } from '../../store/stages/selectors'
@@ -9,7 +9,7 @@ export default function StagesPage() {
     const dispatch = useDispatch()
     const [day, setDay] = useState(1)
     const stagesForDay = useSelector(selectStages)
-    console.log(stagesForDay)
+    //console.log(stagesForDay)
 
     useEffect(()=>{
         dispatch(getStages(day))
@@ -41,16 +41,22 @@ export default function StagesPage() {
                     </Card>
                 </Container>
             </Jumbotron>
-            {stagesForDay ? stagesForDay.map(stage => {
-                return (
-                    <Stage 
-                        key={stage.id}
-                        name={stage.name}
-                        isVIP={stage.isVIP}
-                        acts={stage.acts}
-                    />
-                )
-            }):null}
+            <Container>
+                <Card>
+                    <Row>
+                        {stagesForDay ? stagesForDay.map(stage => {
+                            return (
+                                <Stage 
+                                    key={stage.id}
+                                    name={stage.name}
+                                    isVIP={stage.isVIP}
+                                    acts={stage.acts}
+                                />
+                            )
+                        }):null}
+                    </Row>
+                </Card>
+            </Container>
         </div>
     )
 }

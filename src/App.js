@@ -11,17 +11,11 @@ import Login from "./pages/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
-import { Jumbotron } from "react-bootstrap";
 import HomePage from "./pages/HomePage/HomePage";
 import StagesPage from "./pages/StagesPage/StagesPage";
 import Schedule from "./pages/Schedule/Schedule";
+import ActsPage from './pages/ActsPage/ActsPage'
 import aMap from './pages/Map/Map'
-
-const Acts = () => (
-  <Jumbotron>
-    <h1 className="head">Acts</h1>
-  </Jumbotron>
-);
 
 function App() {
   const dispatch = useDispatch();
@@ -40,7 +34,7 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route path="/map" component={aMap} />
         <Route path="/stages" component={StagesPage} />
-        <Route path="/acts" component={Acts} />
+        <Route path="/acts/:actId" component={ActsPage} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
         <Route path="/schedule" component={Schedule} />
