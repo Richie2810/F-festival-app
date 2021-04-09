@@ -12,6 +12,8 @@ export default function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [age, setAge] = useState("")
+  const [isVIP, setIsVIP] = useState(false)
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const history = useHistory();
@@ -25,11 +27,13 @@ export default function SignUp() {
   function submitForm(event) {
     event.preventDefault();
 
-    dispatch(signUp(name, email, password));
+    dispatch(signUp(name, email, password, age, isVIP));
 
     setEmail("");
     setPassword("");
     setName("");
+    setAge("")
+    setIsVIP(false)
   }
 
   return (
@@ -42,7 +46,17 @@ export default function SignUp() {
             value={name}
             onChange={event => setName(event.target.value)}
             type="text"
-            placeholder="Enter name"
+            placeholder="Full name"
+            required
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicAge">
+          <Form.Label>Age</Form.Label>
+          <Form.Control
+            value={age}
+            onChange={event => setAge(parseInt(event.target.value))}
+            type="text"
+            placeholder="Age"
             required
           />
         </Form.Group>
@@ -52,7 +66,7 @@ export default function SignUp() {
             value={email}
             onChange={event => setEmail(event.target.value)}
             type="email"
-            placeholder="Enter email"
+            placeholder="Email"
             required
           />
           <Form.Text className="text-muted">
@@ -68,6 +82,14 @@ export default function SignUp() {
             type="password"
             placeholder="Password"
             required
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicIsVip">
+          <Form.Label>Would you Like to Buy a VIP ticket</Form.Label>
+          <Form.Check
+            value={isVIP}
+            onChange={event => setIsVIP(event.target.checked)}
+            type="checkbox"
           />
         </Form.Group>
         <Form.Group className="mt-5">
