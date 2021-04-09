@@ -4,7 +4,7 @@ import Acts from '../../components/Act/Act'
 import './Stage.css'
 
 export default function Stage(props) {
-    console.log('acts', props.acts)
+    const acts = props.acts
     return (
         <Col>
             <Container className='stages'>
@@ -13,12 +13,12 @@ export default function Stage(props) {
                         {props.name}
                     </Card.Title>
                     <Card.Text className='text-muted'>
-                        VIP:{props.isVIP ? ' True' : ' False'}
+                        {props.isVIP ? 'This is a VIP Stage' : null}
                     </Card.Text>
                     <Container>
                         <Card>
                             <Card.Header>{props.name}</Card.Header>
-                            {props.acts ? props.acts.map(act=>{    
+                            {acts ? props.acts.map(act=>{    
                                 return (
                                     <Acts 
                                         key={act.id}

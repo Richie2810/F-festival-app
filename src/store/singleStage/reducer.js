@@ -1,14 +1,14 @@
 const initialState = {
-    allStages: []
+    stage: []
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case 'stages/fetched':{
-            console.log('in reducer',action.payload)
+        case 'singleStage/singleFetched': {
+            //console.log('in reducer',action.payload)
             return {
                 ...state,
-                allStages:[...action.payload]
+                stage:action.payload
             }
         }
         default:

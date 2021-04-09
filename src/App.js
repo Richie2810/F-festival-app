@@ -11,8 +11,10 @@ import Login from "./pages/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
+
 import HomePage from "./pages/HomePage/HomePage";
 import StagesPage from "./pages/StagesPage/StagesPage";
+import SingleStagePage from './pages/SingleStagePage/SingleStagePage'
 import Schedule from "./pages/Schedule/Schedule";
 import ActsPage from './pages/ActsPage/ActsPage'
 import aMap from './pages/Map/Map'
@@ -33,8 +35,9 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/map" component={aMap} />
-        <Route path="/stages" component={StagesPage} />
-        <Route path="/acts/:actId" component={ActsPage} />
+        <Route path="/stages/" component={StagesPage} />
+        <Route path="/stage/:stageId" component={SingleStagePage} />
+        <Route path="/acts/:actId?" component={ActsPage} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
         <Route path="/schedule" component={Schedule} />

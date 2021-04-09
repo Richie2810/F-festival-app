@@ -18,6 +18,7 @@ export const getActs = () => async (dispatch, getState) => {
         const response = await axios.get(`${apiUrl}/acts`)
         //console.log('inside action',response.data)
         dispatch(actsFetched(response.data))
+        dispatch(appDoneLoading());
     } catch(error) {
         if (error.response) {
           console.log(error.response.data.message);

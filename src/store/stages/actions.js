@@ -14,6 +14,7 @@ const stagesFetched = stages => {
     }
 }
 
+
 export const getStages = (day) => {
     return async (dispatch, getState) => {
         dispatch(appLoading());
@@ -39,3 +40,4 @@ export const getStages = (day) => {
           }
     }
 }
+

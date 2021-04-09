@@ -14,7 +14,7 @@ export default function Act(props) {
                 credit={props.description}
             >
             <div>
-                <UrlButton href={`/act/${props.id}`}>
+                <UrlButton href={`/acts/${props.id}`}>
                 View more
                 </UrlButton>
             </div>

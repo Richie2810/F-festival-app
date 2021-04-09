@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react'
-import { Breadcrumb, Card, Col, Container, Jumbotron, Row } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Breadcrumb, Button, Card, Col, Container, Jumbotron, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Lineup from '../../components/Lineup/Lineup'
 import { getActs } from '../../store/acts/actions'
 import { selectActs, SelectSingleAct } from '../../store/acts/selectors'
 import { useHistory, useParams } from 'react-router-dom'
 import './ActsPage.scss'
+import ReactPlayer from 'react-player/lazy'
 
 
 
@@ -15,15 +16,18 @@ export default function ActsPage() {
     const acts = useSelector(selectActs)
     const history = useHistory()
     const singleAct = useSelector(SelectSingleAct(actId))
+    const [imageClicked, setImageClicked] = useState(false)
     console.log('this is the act ID',singleAct)
 
     const onActClick = (id) => {
         history.push(`/acts/${id}`)
+        setImageClicked(false)
     }
+
 
     useEffect(()=>{
         dispatch(getActs())
-    },[dispatch, history])
+    },[dispatch])
 
     return (
         <div>
@@ -50,9 +54,21 @@ export default function ActsPage() {
             <Container>
                         {singleAct ? <Card>
                                         <Row>
-                                            <Col>
-                                            <Card.Title>{singleAct.name}</Card.Title>
-                                            <Card.Img src={singleAct.image} alt={singleAct.name}/>
+                                            <Col className='text-center'>
+                                                <Card.Title>{singleAct.name}</Card.Title>
+                                                {imageClicked ? <ReactPlayer url={singleAct.video} />  : <Card.Img style={{width:640, height:360}} src={singleAct.image} alt={singleAct.name} onClick={()=>{setImageClicked(!imageClicked)}}/>}
+                                            </Col>
+                                            <Col className='text-center'>
+                                                <Card.Text>Day: {singleAct.day}</Card.Text>
+                                                <Card.Text>Stage: {singleAct.stage.name}</Card.Text>
+                                                <Card.Text>Starts: {singleAct.start_time}<br></br>
+                                                Ends: {singleAct.end_time}</Card.Text>
+                                                {singleAct.stage.isVIP 
+                                                    ? <Card.Text><strong>This is a VIP Stage</strong> <br></br> 
+                                                    <Button>Upgrade to VIP</Button></Card.Text>
+                                                    : null}
+                                                <Card.Text>{singleAct.description}</Card.Text>
+                                                <Card.Title>Click the Image to hear what they sound like!</Card.Title>
                                             </Col>
                                         </Row>
                                     </Card>
