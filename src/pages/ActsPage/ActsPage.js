@@ -7,6 +7,7 @@ import { selectActs, SelectSingleAct } from '../../store/acts/selectors'
 import { useHistory, useParams } from 'react-router-dom'
 import './ActsPage.scss'
 import ReactPlayer from 'react-player/lazy'
+import { addToSchedule } from '../../store/plans/actions'
 
 
 
@@ -69,6 +70,7 @@ export default function ActsPage() {
                                                     : null}
                                                 <Card.Text>{singleAct.description}</Card.Text>
                                                 <Card.Title>Click the Image to hear what they sound like!</Card.Title>
+                                                <Button onClick={()=>{dispatch(addToSchedule(singleAct.id))}}>Add this act to your Schedule</Button>
                                             </Col>
                                         </Row>
                                     </Card>

@@ -22,6 +22,7 @@ export default function Stage(props) {
                                 return (
                                     <Acts 
                                         key={act.id}
+                                        id={act.id}
                                         name={act.name}
                                         day={act.day}
                                         start={act.start_time}
