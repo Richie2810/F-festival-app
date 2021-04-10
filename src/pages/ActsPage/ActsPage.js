@@ -8,6 +8,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import './ActsPage.scss'
 import ReactPlayer from 'react-player/lazy'
 import { addToSchedule } from '../../store/plans/actions'
+import { selectUser } from '../../store/user/selectors'
 
 
 
@@ -15,6 +16,7 @@ export default function ActsPage() {
     const { actId } = useParams()
     const dispatch = useDispatch()
     const acts = useSelector(selectActs)
+    const thisUser = useSelector(selectUser)
     const history = useHistory()
     const singleAct = useSelector(SelectSingleAct(actId))
     const [imageClicked, setImageClicked] = useState(false)
@@ -70,7 +72,10 @@ export default function ActsPage() {
                                                     : null}
                                                 <Card.Text>{singleAct.description}</Card.Text>
                                                 <Card.Title>Click the Image to hear what they sound like!</Card.Title>
-                                                <Button onClick={()=>{dispatch(addToSchedule(singleAct.id))}}>Add this act to your Schedule</Button>
+                                                {singleAct.users.find(user => user.id === thisUser.id) 
+                                                    ? <Button variant="outline-secondary" disabled>Already added to Schedule</Button>
+                                                    : <Button onClick={()=>{dispatch(addToSchedule(singleAct.id))}}>Add to your Schedule</Button>
+                                                }
                                             </Col>
                                         </Row>
                                     </Card>

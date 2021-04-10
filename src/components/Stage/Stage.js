@@ -5,6 +5,7 @@ import './Stage.css'
 
 export default function Stage(props) {
     const acts = props.acts
+    console.log(props.acts)
     return (
         <Col>
             <Container className='stages'>
@@ -30,6 +31,7 @@ export default function Stage(props) {
                                         description={act.description}
                                         image={act.image}
                                         video={act.video}
+                                        scheduled={act.users}
                                     />
                                 )
                             }):null}
