@@ -37,6 +37,7 @@ export default function SingleStagePage() {
                             image={act.image}
                             video={act.video}
                             scheduled={act.users}
+                            stageVIP={stage.isVIP}
                         />
                     )
                 }):null}

@@ -8,7 +8,7 @@ export default function Act(props) {
     const dispatch = useDispatch()
     const thisUser = useSelector(selectUser)
 
-    console.log('scheduled',props.scheduled)
+    // console.log('are they vip?',thisUser.isVIP)
 
     return (
         <ListGroup>
@@ -16,10 +16,16 @@ export default function Act(props) {
                 <Row>
                     <Col>
                         {props.name}<br></br>
-                        {props.scheduled.find(user => user.id === thisUser.id) 
-                            ? <Button variant="outline-secondary" disabled>Already added to Schedule</Button>
-                            : <Button onClick={()=>{dispatch(addToSchedule(props.id))}}>Add to your Schedule</Button>
-                        }
+                        {thisUser.isVIP && props.stageVIP
+                            ? props.scheduled.find(user => user.id === thisUser.id) 
+                                ? <Button variant="outline-secondary" disabled>Already added to Schedule</Button>
+                                : <Button onClick={()=>{dispatch(addToSchedule(props.id))}}>Add to your Schedule</Button>
+                            : props.stageVIP 
+                                ? <Button variant="warning">Upgrade to VIP</Button>
+                                : props.scheduled.find(user => user.id === thisUser.id) 
+                                    ? <Button variant="outline-secondary" disabled>Already added to Schedule</Button>
+                                    : <Button onClick={()=>{dispatch(addToSchedule(props.id))}}>Add to your Schedule</Button>
+                            }
                     </Col>
                     <Col>
                         <Card.Text size="sm">

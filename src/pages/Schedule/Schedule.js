@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Card, Col, Container, Jumbotron, Row } from 'react-bootstrap'
+import { Button, Card, Col, Container, Jumbotron, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectUsersPlansFriday,selectUsersPlansSaturday,selectUsersPlansSunday } from '../../store/plans/selectors'
 import { getUsersPlans } from '../../store/plans/actions'
@@ -8,7 +8,9 @@ import {
     Timeline,
     Events,
     TextEvent,
+    UrlButton,
   } from '@merc/react-timeline';
+import { Link } from 'react-router-dom'
 
 export default function Schedule() {
     const dispatch = useDispatch()
@@ -52,8 +54,14 @@ export default function Schedule() {
                                         )
                                     })
                                         :
-                                        <TextEvent date="" text="Make some plans to see acts on Friday!" />
-                                    }
+                                        <TextEvent date="" text="Make some plans to see acts on Friday!" >
+                                            <div>
+                                                <UrlButton href={`/stages`}>
+                                                    To Stages
+                                                </UrlButton>
+                                            </div>
+                                        </TextEvent>
+                                        }
                                 </Events>
                             </Timeline>
                         </Card>
@@ -82,7 +90,13 @@ export default function Schedule() {
                                         )
                                     })
                                         :
-                                        <TextEvent date="" text="Make some plans to see acts on Saturday!" />
+                                        <TextEvent date="" text="Make some plans to see acts on Saturday!" >
+                                            <div>
+                                                <UrlButton href={`/stages`}>
+                                                    To Stages
+                                                </UrlButton>
+                                            </div>
+                                        </TextEvent>
                                     }
                                 </Events>
                             </Timeline>
@@ -111,7 +125,14 @@ export default function Schedule() {
                                             />
                                         )
                                     })
-                                        : <TextEvent date="" text="Make some plans to see acts on Sunday!" />
+                                        :   
+                                                <TextEvent date="" text="Make some plans to see acts on Sunday!">
+                                                <div>
+                                                    <UrlButton href={`/stages`}>
+                                                       To Stages
+                                                    </UrlButton>
+                                                </div>
+                                                </TextEvent>
                                         }
                                 </Events>
                             </Timeline>
