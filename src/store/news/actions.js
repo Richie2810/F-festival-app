@@ -6,18 +6,17 @@ import {
   setMessage
 } from "../appState/actions";
 
-const actsFetched = acts => ({
-    type: 'acts/fetched',
-    payload: acts
+const newsFetched = news =>({
+    type:'news/fetched',
+    payload: news
 })
 
-export const getActs = () => async (dispatch, getState) => {
+export const getNews = () => async (dispatch, getState) => {
     dispatch(appLoading())
-    //console.log('here')
     try {
-        const response = await axios.get(`${apiUrl}/acts`)
-        //console.log('inside action',response.data)
-        dispatch(actsFetched(response.data))
+        const response = await axios.get(`${apiUrl}/news`)
+        console.log('inside action',response.data)
+        dispatch(newsFetched(response.data))
         dispatch(appDoneLoading());
     } catch(error) {
         if (error.response) {

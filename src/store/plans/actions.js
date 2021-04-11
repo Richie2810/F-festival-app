@@ -1,8 +1,8 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
 import {
-  appLoading,
-  appDoneLoading,
+  // appLoading,
+  // appDoneLoading,
   setMessage
 } from "../appState/actions";
 import { selectUser } from "../user/selectors";
