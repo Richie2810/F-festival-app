@@ -38,6 +38,7 @@ export default function SingleStagePage() {
                             video={act.video}
                             scheduled={act.users}
                             stageVIP={stage.isVIP}
+                            stageId={stage.id}
                         />
                     )
                 }):null}

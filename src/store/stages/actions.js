@@ -26,7 +26,6 @@ export const getStages = (day) => {
             )
             // console.log('fetched',response.data)
             dispatch(stagesFetched(response.data))
-            dispatch(showMessageWithTimeout("success", true, "Stages for that day"));
             dispatch(appDoneLoading());
         } catch(error) {
             if (error.response) {
