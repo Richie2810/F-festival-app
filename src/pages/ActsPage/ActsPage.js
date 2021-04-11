@@ -20,7 +20,7 @@ export default function ActsPage() {
     const history = useHistory()
     const singleAct = useSelector(SelectSingleAct(actId))
     const [imageClicked, setImageClicked] = useState(false)
-    console.log('this is the act ID',singleAct)
+    console.log('this user',thisUser)
 
     const onActClick = (id) => {
         history.push(`/acts/${id}`)
@@ -71,16 +71,27 @@ export default function ActsPage() {
                                                     : null}
                                                 <Card.Text>{singleAct.description}</Card.Text>
                                                 <Card.Title>Click the Image to hear what they sound like!</Card.Title>
-                                                {thisUser.isVIP && singleAct.stage.isVIP
-                                                    ? singleAct.users.find(user => user.id === thisUser.id) 
-                                                        ? <Button variant="outline-secondary" disabled>Already added to Schedule</Button>
-                                                        : <Button onClick={()=>{dispatch(addToSchedule(singleAct.id))}}>Add to your Schedule</Button>
-                                                    :singleAct.stage.isVIP
-                                                        ? <Button variant="warning">Upgrade to VIP</Button>
-                                                        : singleAct.users.find(user => user.id === thisUser.id) 
+                                                {thisUser.token 
+                                                    ? thisUser.isVIP && singleAct.stage.isVIP
+                                                        ? singleAct.users.find(user => user.id === thisUser.id) 
                                                             ? <Button variant="outline-secondary" disabled>Already added to Schedule</Button>
-                                                            : <Button onClick={()=>{dispatch(addToSchedule(singleAct.id))}}>Add to your Schedule</Button> 
-                                                }
+                                                            : <Button onClick={()=>{
+                                                                    dispatch(addToSchedule(singleAct.id))
+                                                                    window.location.href = `/acts/${singleAct.id}`
+                                                                }}>
+                                                                    Add to your Schedule
+                                                                </Button>
+                                                        :singleAct.stage.isVIP
+                                                            ? <Button variant="warning">Upgrade to VIP</Button>
+                                                            : singleAct.users.find(user => user.id === thisUser.id) 
+                                                                ? <Button variant="outline-secondary" disabled>Already added to Schedule</Button>
+                                                                : <Button onClick={()=>{
+                                                                        dispatch(addToSchedule(singleAct.id))
+                                                                        window.location.href = `/acts/${singleAct.id}`
+                                                                    }}>
+                                                                        Add to your Schedule
+                                                                    </Button> 
+                                                    :null}
                                             </Col>
                                         </Row>
                                     </Card>

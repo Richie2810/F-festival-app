@@ -14,32 +14,32 @@ const userPlansFetched = plans => ({
 
 
 export const getUsersPlans = () => async (dispatch, getState) => {
-    dispatch(appLoading())
-    const { token } = selectUser(getState())
-    try {
-        const response = await axios.get(`${apiUrl}/plans`,
-        {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        })
-        //console.log('friday',response.data)
-        dispatch(userPlansFetched(response.data))
-        dispatch(appDoneLoading())
-    } catch(error) {
-        if (error.response) {
-          console.log(error.response.data.message);
-          dispatch(setMessage("danger", true, error.response.data.message));
-        } else {
-          console.log(error.message);
-          dispatch(setMessage("danger", true, error.message));
-        }
-        dispatch(appDoneLoading());
+  // dispatch(appLoading())
+  const { token } = selectUser(getState())
+  try {
+      const response = await axios.get(`${apiUrl}/plans`,
+      {
+          headers: {
+              Authorization: `Bearer ${token}`
+          }
+      })
+      //console.log('friday',response.data)
+      dispatch(userPlansFetched(response.data))
+      // dispatch(appDoneLoading())
+  } catch(error) {
+      if (error.response) {
+        console.log(error.response.data.message);
+        dispatch(setMessage("danger", true, error.response.data.message));
+      } else {
+        console.log(error.message);
+        dispatch(setMessage("danger", true, error.message));
       }
+      // dispatch(appDoneLoading());
+    }
 }
 
 export const addToSchedule = (actId) => async (dispatch, getState) => {
-  dispatch(appLoading())
+  // dispatch(appLoading())
   console.log(actId)
   const { token } = selectUser(getState())
   try{
@@ -52,8 +52,9 @@ export const addToSchedule = (actId) => async (dispatch, getState) => {
         Authorization: `Bearer ${token}`
       } 
     })
-    console.log(response)
-    dispatch(appDoneLoading())
+    console.log('fetched',response.data)
+    dispatch(userPlansFetched(response.data))
+    // dispatch(appDoneLoading())
   }catch(error) {
     if (error.response) {
       console.log(error.response.data.message);
@@ -62,6 +63,32 @@ export const addToSchedule = (actId) => async (dispatch, getState) => {
       console.log(error.message);
       dispatch(setMessage("danger", true, error.message));
     }
-    dispatch(appDoneLoading());
+    // dispatch(appDoneLoading());
+  }
+}
+
+export const removeFromSchedule = (actId) => async (dispatch, getState) => {
+  // dispatch(appLoading())
+  console.log('inside action',actId)
+  const { token } = selectUser(getState())
+  try {
+    const response = await axios.delete(`${apiUrl}/plans/removePlan/${actId}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`
+      } 
+    })
+    console.log('whats being fetched',response.data)
+    dispatch(userPlansFetched(response.data))
+    // dispatch(appDoneLoading())
+  } catch(error) {
+    if (error.response) {
+      console.log(error.response.data.message);
+      dispatch(setMessage("danger", true, error.response.data.message));
+    } else {
+      console.log(error.message);
+      dispatch(setMessage("danger", true, error.message));
+    }
+    // dispatch(appDoneLoading());
   }
 }

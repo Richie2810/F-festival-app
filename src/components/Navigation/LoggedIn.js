@@ -11,7 +11,12 @@ export default function LoggedIn() {
   return (
     <>
       {/* <Nav.Item style={{ padding: ".5rem 1rem" }}>{user.email}</Nav.Item> */}
-      <Button onClick={() => dispatch(logOut())}>{user.email}, Logout</Button>
+      <Button onClick={() => {
+        dispatch(logOut())
+        window.location.href = `/`
+      }}>
+          {user.email}, Logout
+        </Button>
     </>
   );
 }

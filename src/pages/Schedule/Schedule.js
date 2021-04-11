@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Button, Card, Col, Container, Jumbotron, Row } from 'react-bootstrap'
+import { Card, Col, Container, Jumbotron, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectUsersPlansFriday,selectUsersPlansSaturday,selectUsersPlansSunday } from '../../store/plans/selectors'
 import { getUsersPlans } from '../../store/plans/actions'
@@ -10,14 +10,13 @@ import {
     TextEvent,
     UrlButton,
   } from '@merc/react-timeline';
-import { Link } from 'react-router-dom'
 
 export default function Schedule() {
     const dispatch = useDispatch()
     const plansFriday = useSelector(selectUsersPlansFriday)
     const plansSaturday = useSelector(selectUsersPlansSaturday)
     const plansSunday = useSelector(selectUsersPlansSunday)
-    console.log('this is plans',plansSunday)
+    //console.log('this is plans',plansSunday)
 
     useEffect(()=>{
         dispatch(getUsersPlans())
