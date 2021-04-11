@@ -6,6 +6,7 @@ import {
 //   showMessageWithTimeout,
   setMessage
 } from "../appState/actions";
+import { selectUser } from "../user/selectors";
 
 const singleStageFetched = stage => ({
     type:'singleStage/singleFetched',
@@ -15,8 +16,14 @@ const singleStageFetched = stage => ({
 export const getSingleStage = (stageId) => {
     return async (dispatch, getState) => {
         dispatch(appLoading());
+        const { token } = selectUser(getState())
         try {
-            const response = await axios.get(`${apiUrl}/stages/${stageId}`)
+            const response = await axios.get(`${apiUrl}/stages/${stageId}`,
+            {
+                headers: {
+                  Authorization: `Bearer ${token}`
+                } 
+            })
             // console.log('fetched',response.data)
             dispatch(singleStageFetched(response.data))
             dispatch(appDoneLoading());

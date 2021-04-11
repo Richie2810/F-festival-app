@@ -5,6 +5,7 @@ import './Stage.css'
 
 export default function Stage(props) {
     const acts = props.acts
+    //console.log(props.acts)
     return (
         <Col>
             <Container className='stages'>
@@ -22,6 +23,7 @@ export default function Stage(props) {
                                 return (
                                     <Acts 
                                         key={act.id}
+                                        id={act.id}
                                         name={act.name}
                                         day={act.day}
                                         start={act.start_time}
@@ -29,6 +31,8 @@ export default function Stage(props) {
                                         description={act.description}
                                         image={act.image}
                                         video={act.video}
+                                        scheduled={act.users}
+                                        stageVIP={props.isVIP}
                                     />
                                 )
                             }):null}

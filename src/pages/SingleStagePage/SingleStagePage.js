@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Card, Col, Container, Jumbotron, Row } from 'react-bootstrap'
+import { Container, Jumbotron } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import ActStage from '../../components/ActStage/ActStage'
@@ -10,13 +10,13 @@ export default function SingleStagePage() {
     const { stageId } = useParams()
     const dispatch = useDispatch()
     const stage = useSelector(selectSignleStage)
-    //console.log('when page mounted',stage)
+    console.log('when page mounted',stage)
     const acts = stage.acts
     //console.log('just acts', acts)
 
     useEffect(()=>{
         dispatch(getSingleStage(stageId))
-    },[dispatch])
+    },[dispatch, stageId])
 
     return (
         <div>
@@ -36,6 +36,8 @@ export default function SingleStagePage() {
                             description={act.description}
                             image={act.image}
                             video={act.video}
+                            scheduled={act.users}
+                            stageVIP={stage.isVIP}
                         />
                     )
                 }):null}
