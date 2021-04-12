@@ -13,7 +13,7 @@ export default function PlannerNav() {
                     <Nav style={{ width: "100%" }} fill>
                         <NavbarItem path="/newsFeed" linkText="News Feed"/>
                         <NavbarItem path="/crew" linkText="Manage Crew" />
-                        <NavbarItem path="/golfkart" linkText="Golf Karts" />
+                        <NavbarItem path="/golfKarts" linkText="Golf Karts" />
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

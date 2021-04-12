@@ -23,6 +23,9 @@ import { selectUser } from "./store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
+import NewsFeedForm from "./components/NewsFeedForm/NewsFeedForm";
+import ManageCrew from "./components/ManageCrew/ManageCrew";
+import GolfKarts from "./components/GolfKarts/GolfKarts";
 
 
 
@@ -56,6 +59,11 @@ function App() {
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
         <Route path="/schedule" component={Schedule} />
+        <Route path="/newsFeed" component={NewsFeedForm} />
+        <Route path="/crew" component={ManageCrew} />
+        <Route path="/golfKarts" component={GolfKarts} />
+        
+
       </Switch>
           </Col>
           <Col xs lg="2">
@@ -69,6 +77,7 @@ function App() {
                             return (
                                 <NewsFeed 
                                     key={index}
+                                    id={news.id}
                                     title={news.title}
                                     description={news.description}
                                     link={news.link}
