@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { Card, Col, Container, Jumbotron, Row } from 'react-bootstrap'
+import { Jumbotron } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import NewsFeed from '../../components/NewsFeed/NewsFeed';
+
 import { getNews } from '../../store/news/actions';
 import { selectNews } from '../../store/news/selectors';
 import { selectToken } from '../../store/user/selectors';
