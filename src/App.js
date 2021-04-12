@@ -18,13 +18,21 @@ import SingleStagePage from './pages/SingleStagePage/SingleStagePage'
 import Schedule from "./pages/Schedule/Schedule";
 import ActsPage from './pages/ActsPage/ActsPage'
 import aMap from './pages/Map/Map'
+import NewsFeed from "./components/NewsFeed/NewsFeed";
+import { getNews } from "./store/news/actions";
+import { selectNews } from "./store/news/selectors";
+import { Card, Col, Container, Row } from "react-bootstrap";
 
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
+  const newsFeed = useSelector(selectNews)
+  console.log(newsFeed)
+
 
   useEffect(() => {
     dispatch(getUserWithStoredToken());
+    dispatch(getNews())
   }, [dispatch]);
 
   return (
@@ -32,6 +40,9 @@ function App() {
       <Navigation />
       <MessageBox />
       {isLoading ? <Loading /> : null}
+      <Container>
+        <Row>
+          <Col xs lg="10">
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/map" component={aMap} />
@@ -42,6 +53,28 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/schedule" component={Schedule} />
       </Switch>
+          </Col>
+          <Col xs lg="2">
+                <Row xs lg="2">
+                    <Col className='text-center' >
+                        <Card.Title style={{fontSize: 40}}>News Feed</Card.Title>                    
+                    </Col>
+                </Row>
+                    <Row xs lg="2" mb-5>
+                        {newsFeed ? newsFeed.map((news, index) => {
+                            return (
+                                <NewsFeed 
+                                    key={index}
+                                    title={news.title}
+                                    description={news.description}
+                                    link={news.link}
+                                    image={news.img}
+                                />
+                        )}):null}
+                    </Row>
+            </Col>
+          </Row>
+        </Container>
     </div>
   );
 }

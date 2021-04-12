@@ -25,28 +25,6 @@ export default function HomePage() {
                 <h5 className="head">Come enjoy our festival by creating a schedule and not missing any of acts on our multible stages</h5>
                 {token ? null : <p className="head"><Link to="/login">Login here or sign up</Link></p>}
             </Jumbotron>
-            <Container>
-                <Row>
-                    <Col className='text-center' >
-                        <Card.Title style={{fontSize: 40}}>News Feed</Card.Title>                    
-                    </Col>
-                </Row>
-                    <Row>
-                        {newsFeed ? newsFeed.map((news, index) => {
-                            return (
-                                <NewsFeed 
-                                    key={index}
-                                    title={news.title}
-                                    description={news.description}
-                                    link={news.link}
-                                    image={news.img}
-                                />
-                        )}):null}
-                    </Row>
-            </Container>
-            
-            {/* <NewsFeed />
-            <SocialMedia /> TODO */}
         </div>
     )
 }
