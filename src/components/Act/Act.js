@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Button, Card, Col, ListGroup, Row } from 'react-bootstrap'
+import { Button, Card, Col, Dropdown, ListGroup, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToSchedule } from '../../store/plans/actions'
 import { selectUser } from '../../store/user/selectors'
+import { makeVIP } from '../../store/user/actions'
 
 export default function Act(props) {
     const dispatch = useDispatch()
@@ -39,7 +40,16 @@ export default function Act(props) {
                                             {buttonText.text}
                                     </Button>
                                 : props.stageVIP 
-                                    ? <Button variant="warning">Upgrade to VIP</Button>
+                                    ?   <Dropdown>
+                                            <Dropdown.Toggle variant='warning'>
+                                                Upgrade to VIP
+                                            </Dropdown.Toggle>
+                                            <Dropdown.Menu>
+                                                <Dropdown.Item onClick={()=>{dispatch(makeVIP())}}>Yes</Dropdown.Item>
+                                                <Dropdown.Divider/>
+                                                <Dropdown.Item>No</Dropdown.Item>
+                                            </Dropdown.Menu>
+                                        </Dropdown>
                                     : props.scheduled.find(user => user.id === thisUser.id) 
                                         ? <Button variant="outline-secondary" disabled>Already added to Schedule</Button>
                                     : <Button variant={buttonText.variant} disabled={buttonText.disabled} onClick={()=>{

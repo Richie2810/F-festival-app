@@ -34,7 +34,7 @@ function App() {
   const isLoading = useSelector(selectAppLoading);
   const newsFeed = useSelector(selectNews)
   const user = useSelector(selectUser)
-  console.log('this is the user',user)
+  //console.log('this is the user',user)
 
   useEffect(() => {
     dispatch(getUserWithStoredToken());
@@ -66,13 +66,13 @@ function App() {
 
       </Switch>
           </Col>
-          <Col xs lg="2">
-                <Row xs lg="2">
+          <Col>
+                <Row >
                     <Col className='text-center' >
                         <Card.Title style={{fontSize: 40}}>News Feed</Card.Title>                    
                     </Col>
                 </Row>
-                    <Row xs lg="2" mb-5>
+                    <Row >
                         {newsFeed ? newsFeed.map((news, index) => {
                             return (
                                 <NewsFeed 

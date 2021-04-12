@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Breadcrumb, Button, Card, Col, Container, Jumbotron, Row } from 'react-bootstrap'
+import { Breadcrumb, Button, Card, Col, Container, Dropdown, Jumbotron, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Lineup from '../../components/Lineup/Lineup'
 import { getActs } from '../../store/acts/actions'
@@ -9,6 +9,7 @@ import './ActsPage.scss'
 import ReactPlayer from 'react-player/lazy'
 import { addToSchedule } from '../../store/plans/actions'
 import { selectUser } from '../../store/user/selectors'
+import { makeVIP } from '../../store/user/actions'
 
 
 
@@ -94,7 +95,16 @@ export default function ActsPage() {
                                                                 {buttonText.text}
                                                         </Button>
                                                         :singleAct.stage.isVIP
-                                                            ? <Button variant="warning">Upgrade to VIP</Button>
+                                                            ?   <Dropdown>
+                                                                    <Dropdown.Toggle variant='warning'>
+                                                                        Upgrade to VIP
+                                                                    </Dropdown.Toggle>
+                                                                    <Dropdown.Menu>
+                                                                        <Dropdown.Item onClick={()=>{dispatch(makeVIP())}}>Yes</Dropdown.Item>
+                                                                        <Dropdown.Divider/>
+                                                                        <Dropdown.Item>No</Dropdown.Item>
+                                                                    </Dropdown.Menu>
+                                                                </Dropdown>
                                                             : singleAct.users.find(user => user.id === thisUser.id) 
                                                                 ? <Button variant="outline-secondary" disabled>Already added to Schedule</Button>
                                                                 : <Button variant={buttonText.variant} disabled={buttonText.disabled} onClick={()=>{

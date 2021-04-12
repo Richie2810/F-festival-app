@@ -111,3 +111,27 @@ export const getUserWithStoredToken = () => {
     }
   };
 };
+
+export const makeVIP = () => async (dispatch, getState) => {
+  dispatch(appLoading())
+  const token = selectToken(getState());
+  try {
+    console.log('before response')
+    const response = await axios.post(`${apiUrl}/makeVIP`,
+    {},
+    {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    console.log('after response')
+
+    dispatch(tokenStillValid(response.data));
+    dispatch(appDoneLoading());
+  } catch (error) {
+    if (error.response) {
+      console.log(error.response.message);
+    } else {
+      console.log(error);
+    }
+    dispatch(appDoneLoading());
+  }
+};

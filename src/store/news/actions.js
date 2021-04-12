@@ -16,7 +16,7 @@ export const getNews = () => async (dispatch, getState) => {
     dispatch(appLoading())
     try {
         const response = await axios.get(`${apiUrl}/news`)
-        console.log('inside action',response.data)
+        //console.log('inside action',response.data)
         dispatch(newsFetched(response.data))
         dispatch(appDoneLoading());
     } catch(error) {

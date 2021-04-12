@@ -10,7 +10,7 @@ export default function SingleStagePage() {
     const { stageId } = useParams()
     const dispatch = useDispatch()
     const stage = useSelector(selectSignleStage)
-    console.log('when page mounted',stage)
+    //console.log('when page mounted',stage)
     const acts = stage.acts
     //console.log('just acts', acts)
 
