@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Card, Col, ListGroup, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToSchedule } from '../../store/plans/actions'
@@ -8,7 +8,19 @@ export default function Act(props) {
     const dispatch = useDispatch()
     const thisUser = useSelector(selectUser)
 
-    // console.log('are they vip?',thisUser.isVIP)
+    const notPlannedButtonText = {
+        text:'Add to your Schedule',
+        variant:"primary",
+        disabled:false
+    }
+    const plannedButtonText = {
+        text:'Already added to Schedule',
+        variant:"outline-secondary",
+        disabled:true
+    }
+    const [buttonText ,setButtonText] = useState(notPlannedButtonText)
+
+    
 
     return (
         <ListGroup>
@@ -20,22 +32,22 @@ export default function Act(props) {
                             ? thisUser.isVIP && props.stageVIP
                                 ? props.scheduled.find(user => user.id === thisUser.id) 
                                     ? <Button variant="outline-secondary" disabled>Already added to Schedule</Button>
-                                    : <Button onClick={()=>{
+                                    : <Button variant={buttonText.variant} onClick={()=>{
                                             dispatch(addToSchedule(props.id))
-                                            window.location.href = '/stages'
+                                            setButtonText(plannedButtonText)
                                         }}>
-                                            Add to your Schedule
+                                            {buttonText.text}
                                     </Button>
                                 : props.stageVIP 
                                     ? <Button variant="warning">Upgrade to VIP</Button>
                                     : props.scheduled.find(user => user.id === thisUser.id) 
                                         ? <Button variant="outline-secondary" disabled>Already added to Schedule</Button>
-                                        : <Button onClick={()=>{
-                                                dispatch(addToSchedule(props.id))
-                                                window.location.href = '/stages'
-                                            }}>
-                                                Add to your Schedule
-                                        </Button>
+                                    : <Button variant={buttonText.variant} disabled={buttonText.disabled} onClick={()=>{
+                                            dispatch(addToSchedule(props.id))
+                                            setButtonText(plannedButtonText)
+                                        }}>
+                                            {buttonText.text}
+                                    </Button>
                             :null
                         }
                     </Col>

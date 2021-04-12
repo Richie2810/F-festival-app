@@ -3,7 +3,6 @@ import axios from "axios";
 import {
   appLoading,
   appDoneLoading,
-  showMessageWithTimeout,
   setMessage
 } from "../appState/actions";
 

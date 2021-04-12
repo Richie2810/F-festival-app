@@ -22,6 +22,18 @@ export default function ActsPage() {
     const [imageClicked, setImageClicked] = useState(false)
     console.log('this user',thisUser)
 
+    const notPlannedButtonText = {
+        text:'Add to your Schedule',
+        variant:"primary",
+        disabled:false
+    }
+    const plannedButtonText = {
+        text:'Already added to Schedule',
+        variant:"outline-secondary",
+        disabled:true
+    }
+    const [buttonText ,setButtonText] = useState(notPlannedButtonText)
+
     const onActClick = (id) => {
         history.push(`/acts/${id}`)
         setImageClicked(false)
@@ -75,22 +87,22 @@ export default function ActsPage() {
                                                     ? thisUser.isVIP && singleAct.stage.isVIP
                                                         ? singleAct.users.find(user => user.id === thisUser.id) 
                                                             ? <Button variant="outline-secondary" disabled>Already added to Schedule</Button>
-                                                            : <Button onClick={()=>{
-                                                                    dispatch(addToSchedule(singleAct.id))
-                                                                    window.location.href = `/acts/${singleAct.id}`
-                                                                }}>
-                                                                    Add to your Schedule
-                                                                </Button>
+                                                            : <Button variant={buttonText.variant} disabled={buttonText.disabled} onClick={()=>{
+                                                                dispatch(addToSchedule(singleAct.id))
+                                                                setButtonText(plannedButtonText)
+                                                            }}>
+                                                                {buttonText.text}
+                                                        </Button>
                                                         :singleAct.stage.isVIP
                                                             ? <Button variant="warning">Upgrade to VIP</Button>
                                                             : singleAct.users.find(user => user.id === thisUser.id) 
                                                                 ? <Button variant="outline-secondary" disabled>Already added to Schedule</Button>
-                                                                : <Button onClick={()=>{
-                                                                        dispatch(addToSchedule(singleAct.id))
-                                                                        window.location.href = `/acts/${singleAct.id}`
-                                                                    }}>
-                                                                        Add to your Schedule
-                                                                    </Button> 
+                                                                : <Button variant={buttonText.variant} disabled={buttonText.disabled} onClick={()=>{
+                                                                    dispatch(addToSchedule(singleAct.id))
+                                                                    setButtonText(plannedButtonText)
+                                                                }}>
+                                                                    {buttonText.text}
+                                                            </Button>
                                                     :null}
                                             </Col>
                                         </Row>
