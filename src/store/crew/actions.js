@@ -5,7 +5,6 @@ import {
   appDoneLoading,
   setMessage
 } from "../appState/actions";
-import { selectUser } from "../user/selectors";
 
 const crewFetched = crew => ({
     type: 'crew/fetched',

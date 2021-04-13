@@ -25,7 +25,7 @@ import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import NewsFeedForm from "./components/NewsFeedForm/NewsFeedForm";
 import ManageCrew from "./pages/ManageCrew/ManageCrew";
-import GolfKarts from "./components/GolfKarts/GolfKarts";
+import GolfKarts from "./pages/GolfKarts/GolfKarts";
 
 
 

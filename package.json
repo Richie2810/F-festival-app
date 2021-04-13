@@ -16,6 +16,7 @@
     "react-day-scheduler": "^0.3.5-beta3.3",
     "react-dom": "^16.14.0",
     "react-is": "^16.13.1",
+    "react-map-gl": "^6.1.12",
     "react-player": "^2.9.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
