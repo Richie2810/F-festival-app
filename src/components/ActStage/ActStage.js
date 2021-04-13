@@ -46,7 +46,10 @@ export default function ActStage(props) {
                                             Upgrade to VIP
                                         </Dropdown.Toggle>
                                         <Dropdown.Menu>
-                                            <Dropdown.Item onClick={()=>{dispatch(makeVIP())}}>Yes</Dropdown.Item>
+                                            <Dropdown.Item onClick={()=>{
+                                                dispatch(makeVIP())
+                                                window.location.reload()
+                                                }}>Yes</Dropdown.Item>
                                             <Dropdown.Divider/>
                                             <Dropdown.Item>No</Dropdown.Item>
                                         </Dropdown.Menu>

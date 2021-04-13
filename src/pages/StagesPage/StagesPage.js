@@ -29,7 +29,6 @@ export default function StagesPage() {
                                 Which Day?
                                 <Form.Control
                                     as="select"
-                                    custom
                                     onChange={(e)=>{setDay(e.target.value)}}
                                 >   
                                     <option value='1'>Friday</option>

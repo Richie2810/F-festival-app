@@ -37,7 +37,7 @@ export default function NewsFeedForm() {
     return (
         <Container>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
-        <h1 className="mt-5 mb-5">Signup</h1>
+        <h1 className="mt-5 mb-5">News Feed Form</h1>
         <Form.Group controlId="formBasicTitle">
           <Form.Label>Title</Form.Label>
           <Form.Control

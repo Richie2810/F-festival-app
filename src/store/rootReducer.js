@@ -6,6 +6,7 @@ import plans from './plans/reducer'
 import acts from './acts/reducer'
 import singleStage  from './singleStage/reducer'
 import news from './news/reducer'
+import crew from './crew/reducer'
 
 export default combineReducers({
   appState,
@@ -14,5 +15,6 @@ export default combineReducers({
   plans,
   acts,
   singleStage,
-  news
+  news,
+  crew
 });

@@ -24,7 +24,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import NewsFeedForm from "./components/NewsFeedForm/NewsFeedForm";
-import ManageCrew from "./components/ManageCrew/ManageCrew";
+import ManageCrew from "./pages/ManageCrew/ManageCrew";
 import GolfKarts from "./components/GolfKarts/GolfKarts";
 
 
@@ -62,8 +62,6 @@ function App() {
         <Route path="/newsFeed" component={NewsFeedForm} />
         <Route path="/crew" component={ManageCrew} />
         <Route path="/golfKarts" component={GolfKarts} />
-        
-
       </Switch>
           </Col>
           <Col>
