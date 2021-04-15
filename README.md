@@ -1,4 +1,4 @@
-# Festival-app
+# Festival-app Front-End
 
 This Festival app is for people who want to be organized and see as many bands and artists over 
 a three day festival as possible. Search through the stages, map or Lineup to find the acts you 
