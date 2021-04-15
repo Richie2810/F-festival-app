@@ -17,7 +17,6 @@ export default function Act(props) {
                 text={props.name}
                 src={props.image}
                 alt={props.name}
-                credit={props.description}
             >
             <div>
                 <UrlButton href={`/acts/${props.id}`}>

@@ -5,9 +5,10 @@ import { moveCrew } from '../../store/stages/actions'
 
 export default function TheCrew(props) {
     const dispatch = useDispatch()
+    console.log(props.stages)
     return (
         <Col>   
-            <Card>
+            <Card className='ml-2'>
                 <Card.Title className='m-2 text-center ' style={{backgroundColor:'lightgrey'}}>
                     {props.name}
                 </Card.Title>

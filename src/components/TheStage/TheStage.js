@@ -3,7 +3,7 @@ import { Card, Col, Row } from 'react-bootstrap'
 import TheCrew from '../TheCrew/TheCrew'
 
 export default function TheStage(props) {
-    //console.log('this is stages in stage',props.stages)
+    //console.log('this is crew',props.crew)
     return (
         <Row>
             <Card>
@@ -18,6 +18,7 @@ export default function TheStage(props) {
                                 job={crew.job}
                                 tracker={crew.tracker}
                                 stages={props.stages}
+                                stage={props.name}
                             />
                         )
                     })}
