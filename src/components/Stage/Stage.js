@@ -7,9 +7,9 @@ export default function Stage(props) {
     const acts = props.acts
     //console.log(props.acts)
     return (
-        <Col>
+        <Col className='p-3'>
             <Container className='stages'>
-                <Card style={{ width: '38rem' }}>
+                <Card style={{ width: '38rem', backgroundColor: '#d1b2d9'}}>
                     <Card.Title>
                         {props.name}
                     </Card.Title>
@@ -18,7 +18,6 @@ export default function Stage(props) {
                     </Card.Text>
                     <Container>
                         <Card>
-                            <Card.Header>{props.name}</Card.Header>
                             {acts ? props.acts.map(act=>{    
                                 return (
                                     <Acts 

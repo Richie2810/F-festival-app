@@ -17,7 +17,6 @@ export default function GolfKarts() {
     const trackers = useSelector(selectTrackers)
     
     const [selectedEquip, setSelectedEquip] = useState(null)
-    const [isEnabledColor, setIsEnabledColor] = useState('primary')
 
     useEffect(()=>{
         dispatch(getTrackers())
@@ -76,7 +75,6 @@ export default function GolfKarts() {
                                                         variant='danger'
                                                         onClick={()=>{
                                                             dispatch(changeStatus(selectedEquip.id, selectedEquip.isEnabled))
-                                                            setIsEnabledColor('danger')
                                                             window.location.reload()
                                                             }}>
                                                             Disable</Button> 
@@ -84,7 +82,6 @@ export default function GolfKarts() {
                                                         variant='success'
                                                         onClick={()=>{
                                                             dispatch(changeStatus(selectedEquip.id))
-                                                            setIsEnabledColor('primary')
                                                             window.location.reload()
                                                             }}>
                                                             Enable</Button>}

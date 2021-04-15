@@ -40,7 +40,7 @@ export const getUsersPlans = () => async (dispatch, getState) => {
 
 export const addToSchedule = (actId) => async (dispatch, getState) => {
   // dispatch(appLoading())
-  console.log(actId)
+  //console.log(actId)
   const { token } = selectUser(getState())
   try{
     const response = await axios.post(`${apiUrl}/plans/addPlan`,
@@ -52,7 +52,7 @@ export const addToSchedule = (actId) => async (dispatch, getState) => {
         Authorization: `Bearer ${token}`
       } 
     })
-    console.log('fetched',response.data)
+    //console.log('fetched',response.data)
     dispatch(userPlansFetched(response.data))
     // dispatch(appDoneLoading())
   }catch(error) {
@@ -69,7 +69,7 @@ export const addToSchedule = (actId) => async (dispatch, getState) => {
 
 export const removeFromSchedule = (actId) => async (dispatch, getState) => {
   // dispatch(appLoading())
-  console.log('inside action',actId)
+  //console.log('inside action',actId)
   const { token } = selectUser(getState())
   try {
     const response = await axios.delete(`${apiUrl}/plans/removePlan/${actId}`,
@@ -78,7 +78,7 @@ export const removeFromSchedule = (actId) => async (dispatch, getState) => {
         Authorization: `Bearer ${token}`
       } 
     })
-    console.log('whats being fetched',response.data)
+    //console.log('whats being fetched',response.data)
     dispatch(userPlansFetched(response.data))
     // dispatch(appDoneLoading())
   } catch(error) {

@@ -1,14 +1,13 @@
 import React from 'react'
-import { Card, Col, Row } from 'react-bootstrap'
+import { Card, Col } from 'react-bootstrap'
 import TheCrew from '../TheCrew/TheCrew'
 
 export default function TheStage(props) {
     //console.log('this is crew',props.crew)
     return (
-        <Row>
-            <Card>
-            <Card.Title className='text-center'>{props.name}</Card.Title>
-                <Col>
+        <Col className='p-2'>
+            <Card className='text-center'style={{backgroundColor:'yellow'}}>
+            <Card.Title className='text-center' >{props.name}</Card.Title>
                     {props.crew.map(crew => {
                         return (
                             <TheCrew
@@ -22,8 +21,7 @@ export default function TheStage(props) {
                             />
                         )
                     })}
-                </Col>
             </Card>
-        </Row>
+        </Col>
     )
 }

@@ -4,10 +4,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addToSchedule } from '../../store/plans/actions'
 import { selectUser } from '../../store/user/selectors'
 import { makeVIP } from '../../store/user/actions'
+import moment from 'moment'
+
 
 export default function Act(props) {
     const dispatch = useDispatch()
     const thisUser = useSelector(selectUser)
+    const start = moment(props.start, 'hmm').format("HH:mm")
+    const end = moment(props.end, 'hmm').format("HH:mm")
 
     const notPlannedButtonText = {
         text:'Add to your Schedule',
@@ -66,15 +70,15 @@ export default function Act(props) {
                     </Col>
                     <Col>
                         <Card.Text size="sm">
-                            Start: {props.start}<br></br> 
-                            Ends: {props.end}
+                            Start: {start}<br></br> 
+                            Ends: {end}
                         </Card.Text>
+                    </Col>
+                    <Col>
+                        <Card.Img src={props.image} alt={props.name} style={{width:200, height:100}}></Card.Img>
                     </Col>
                 </Row>
             </ListGroup.Item>
         </ListGroup>
     )
 }
-
-
-// style={{ backgroundImage: `url(${props.image})`, backgroundSize:'auto', backgroundPosition: "center"}}

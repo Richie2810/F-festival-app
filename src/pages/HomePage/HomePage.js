@@ -4,15 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { getNews } from '../../store/news/actions';
-import { selectNews } from '../../store/news/selectors';
 import { selectToken } from '../../store/user/selectors';
 
 
 export default function HomePage() {
     const token = useSelector(selectToken);
     const dispatch = useDispatch()
-    const newsFeed = useSelector(selectNews)
-    console.log(newsFeed)
+
 
     useEffect(()=>{
         dispatch(getNews())

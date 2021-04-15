@@ -53,7 +53,7 @@ export const getStagesForCrew = () => async (dispatch, getState) => {
           }
         }
         )
-        console.log('fetched',response.data)
+        //console.log('fetched',response.data)
         dispatch(stagesFetched(response.data))
         dispatch(appDoneLoading());
     } catch(error) {

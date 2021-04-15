@@ -16,7 +16,7 @@ export default function Schedule() {
     const plansFriday = useSelector(selectUsersPlansFriday)
     const plansSaturday = useSelector(selectUsersPlansSaturday)
     const plansSunday = useSelector(selectUsersPlansSunday)
-    //console.log('this is plans',plansSunday)
+    //console.log('this is plans',plansFriday)
 
     useEffect(()=>{
         dispatch(getUsersPlans())
@@ -49,6 +49,7 @@ export default function Schedule() {
                                                 description={act.description}
                                                 image={act.image}
                                                 video={act.video}
+                                                stage={act.stage.name}
                                             />
                                         )
                                     })
@@ -85,6 +86,7 @@ export default function Schedule() {
                                                 description={act.description}
                                                 image={act.image}
                                                 video={act.video}
+                                                stage={act.stage.name}
                                             />
                                         )
                                     })
@@ -120,6 +122,7 @@ export default function Schedule() {
                                                 end={act.end_time}
                                                 description={act.description}
                                                 image={act.image}
+                                                stage={act.stage.name}
                                                 video={act.video}
                                             />
                                         )

@@ -16,7 +16,7 @@ export const getTrackers = () => async (dispatch, getState) => {
     //console.log('here')
     try {
         const response = await axios.get(`${apiUrl}/tracker`)
-        console.log('inside action get tracker',response.data)
+        //console.log('inside action get tracker',response.data)
         dispatch(trackerFetched(response.data))
         dispatch(appDoneLoading());
     } catch(error) {
@@ -40,7 +40,7 @@ export const changeStatus = (trackerId, isEnabled) => async (dispatch, getState)
           trackerId,
           isEnabled
         })
-        console.log('inside action get tracker',response.data)
+        //console.log('inside action get tracker',response.data)
         dispatch(trackerFetched(response.data))
         dispatch(appDoneLoading());
     } catch(error) {

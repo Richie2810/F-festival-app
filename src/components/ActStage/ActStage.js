@@ -4,10 +4,13 @@ import { addToSchedule } from '../../store/plans/actions'
 import { useDispatch, useSelector} from 'react-redux'
 import { selectUser } from '../../store/user/selectors'
 import { makeVIP } from '../../store/user/actions'
+import moment from 'moment'
 
 export default function ActStage(props) {
     const thisUser = useSelector(selectUser)
     const dispatch = useDispatch()
+    const start = moment(props.start, 'hmm').format("HH:mm")
+    const end = moment(props.end, 'hmm').format("HH:mm")
 
     const notPlannedButtonText = {
         text:'Add to your Schedule',
@@ -21,14 +24,12 @@ export default function ActStage(props) {
     }
     const [buttonText ,setButtonText] = useState(notPlannedButtonText)
 
-
-    //console.log(thisUser)
     return (
-        <Card>
-            <Row>
-                <Col>
+        <Card className='pb-1'>
+            <Row className='m-1 pb-1'>
+                <Col className='m-1'>
                     <Card.Title>{props.name}</Card.Title>
-                    <Card.Text>Starts: {props.start}<br></br>Ends: {props.end}</Card.Text>
+                    <Card.Text>Starts: {start}<br></br>Ends: {end}</Card.Text>
                     <Card.Text>Day: {props.day}</Card.Text>
                     {thisUser.token 
                         ? thisUser.isVIP && props.stageVIP
@@ -66,7 +67,7 @@ export default function ActStage(props) {
                     }
                 </Col>
                 <Col>
-                    <Card.Img src={props.image} alt={props.name}/>
+                    <Card.Img src={props.image} alt={props.name} style={{width:350, height:200}}/>
                 </Col>
             </Row>
         </Card>

@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Jumbotron, Card, Form, Container, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { getStages } from '../../store/stages/actions'
-import { selectStages } from '../../store/stages/selectors'
+import { selectStagesInActOrder } from '../../store/stages/selectors'
 import Stage from '../../components/Stage/Stage'
 
 export default function StagesPage() {
     const dispatch = useDispatch()
     const [day, setDay] = useState(1)
-    const stagesForDay = useSelector(selectStages)
+    const stagesForDay = useSelector(selectStagesInActOrder)
     //console.log(stagesForDay)
 
     useEffect(()=>{
@@ -17,9 +17,9 @@ export default function StagesPage() {
 
     return (
         <div>
-            <Jumbotron>
+            <Jumbotron style={{ backgroundColor:'#1e5569'}}>
                 <Container>
-                    <Card style={{ backgroundImage: `url('https://festivalfans.nl/wp-content/uploads/2019/10/71748125_2448532212081834_2889379513978847232_o-665x250.jpg')`, backgroundRepeat:"no-repeat", backgroundSize: "cover", backgroundPosition: 'center'}}>
+                    <Card style={{ backgroundColor:'#34baeb', backgroundRepeat:"no-repeat", backgroundSize: "cover", backgroundPosition: 'center'}}>
                         <Card.Img />
                         <Card.Body>
                             <Card.Title>
@@ -41,7 +41,7 @@ export default function StagesPage() {
                 </Container>
             </Jumbotron>
             <Container>
-                <Card>
+                <Card style={{ backgroundColor:'#bb70cf'}}>
                     <Row>
                         {stagesForDay ? stagesForDay.map(stage => {
                             return (

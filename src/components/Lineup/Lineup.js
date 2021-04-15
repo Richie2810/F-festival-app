@@ -7,10 +7,9 @@ export default function Lineup(props) {
     const onActClick = (id) => {
         props.onActClick(id)
     }
-    
-    //console.log(props.start)
-    //console.log(props.id)
-    const size = props.start === '21:30' ? 30 : 25
+
+    const size = parseInt(props.start)*1.5/100
+
     return (
         <Breadcrumb.Item 
             style={{fontSize:size}}

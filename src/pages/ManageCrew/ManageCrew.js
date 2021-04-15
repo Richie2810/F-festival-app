@@ -16,7 +16,7 @@ export default function ManageCrew() {
 
     return (
         <Container>
-            <Row>
+            <Row className='m-20'>
                 {stages ? stages.map(stage => {
                     return (
                         <TheStage 

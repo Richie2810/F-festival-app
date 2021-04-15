@@ -14,7 +14,7 @@ export default function Navigation() {
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="lightgrey" expand="lg">
       <Navbar.Brand as={NavLink} to="/">
       Musopolis Festival
       </Navbar.Brand>
@@ -24,7 +24,7 @@ export default function Navigation() {
           <NavbarItem path="/map" linkText="Map" />
           <NavbarItem path="/stages" linkText="Stages" />
           <NavbarItem path="/acts" linkText="Acts" />
-          {token ? <NavbarItem path="/schedule" linkText="Schedule" /> : null}
+          {token ? <NavbarItem path="/schedule" linkText="My Schedule" /> : null}
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>
