@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Card, Col, Container, Row } from 'react-bootstrap'
 import ReactMapGL, { Marker, Popup }from 'react-map-gl'
+import 'mapbox-gl/dist/mapbox-gl.css';
 import { useDispatch, useSelector } from 'react-redux'
 import { getTrackers, changeStatus } from '../../store/tracker/actions'
 import { selectTrackers } from '../../store/tracker/selectors'
