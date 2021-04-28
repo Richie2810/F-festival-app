@@ -3,13 +3,14 @@ import { Button, Card, Col, Container, Row } from 'react-bootstrap'
 import ReactMapGL, { Marker, Popup }from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
+import { useDispatch, useSelector } from 'react-redux'
+import { getTrackers, changeStatus } from '../../store/tracker/actions'
+import { selectTrackers } from '../../store/tracker/selectors'
 
 // eslint-disable-next-line import/no-webpack-loader-syntax
 mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
-import { useDispatch, useSelector } from 'react-redux'
-import { getTrackers, changeStatus } from '../../store/tracker/actions'
-import { selectTrackers } from '../../store/tracker/selectors'
+
 
 export default function GolfKarts() {
     const dispatch = useDispatch()
