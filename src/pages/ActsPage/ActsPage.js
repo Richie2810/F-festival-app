@@ -73,11 +73,11 @@ export default function ActsPage() {
                     ? 
                         <Card>
                             <Row>
-                                <Col className='text-center'>
+                                <Col className='text-center' style={{backgroundColor:'#df9f9f'}}>
                                     <Card.Title>{singleAct.name}</Card.Title>
                                     {imageClicked ? <ReactPlayer url={singleAct.video} />  : <Card.Img style={{width:640, height:360}} src={singleAct.image} alt={singleAct.name} onClick={()=>{setImageClicked(!imageClicked)}}/>}
                                 </Col>
-                                <Col className='text-center'>
+                                <Col className='text-center' style={{backgroundColor:'#df9f9f'}}>
                                     <Card.Text>Day: {singleAct.day}</Card.Text>
                                     <Card.Text>Stage: {singleAct.stage.name}</Card.Text>
                                     <Card.Text>Starts: {moment(singleAct.start_time, 'hmm').format("HH:mm")}<br></br>
