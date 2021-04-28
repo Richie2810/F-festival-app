@@ -33,7 +33,7 @@ export default function GolfKarts() {
                         <Col>
                             <ReactMapGL 
                                 {...viewport} 
-                                mapboxApiAccessToken={'pk.eyJ1IjoicmljaGllMjgxMCIsImEiOiJja25nM3NjMnoxY2hhMnZvYXU1dHppM3JjIn0.msH9UkpKc97ALYxRDCud3g'}
+                                mapboxApiAccessToken={'pk.eyJ1IjoicmljaGllMjgxMCIsImEiOiJja25nNDBlaXcya3Y4Mm9tcWZ3anUxaWNmIn0.oXgCqR9oYAGluGdHwq4mAA'}
                                 mapStyle='mapbox://styles/richie2810/ckng5ev420ner18mw6galdvn3'
                                 onViewportChange={viewport=>{
                                     setViewport(viewport)
