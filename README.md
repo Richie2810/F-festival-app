@@ -1,42 +1,69 @@
-# Frontend template
+# Festival-app Front-End
 
-This is a simple react/redux/jwt template to start a project quickly
+This Festival app is for people who want to be organized and see as many bands and artists over 
+a three day festival as possible. Search through the stages, map or Lineup to find the acts you 
+would like to see and add them to your schedule. 
 
-## Table of contents:
+This app also has functionallity to plan these fesivals, from adding newsfeed items to making 
+sure your equipment and crew are in the right places at the right time. 
 
-- **[Setup](#setup-how-to-use-this-template)**
-- **[Create React App docs](#cra-docs)**
+### Installation
 
-## SETUP How to use this template
+1. Clone the repo
+   ```sh
+   git clone https://github.com/your_username_/Project-Name.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
 
-1. Create a new project based on this template using the `Use this template` button
+## Features
+As a User
+- Sign up and purchase Tickets
+- A VIP option for the VIP stages
+- Search through acts with our Map, All Stages or the Lineup
+- Add these acts to your own personal schedule and keep track of the times and stage of the acts
+- See when these acts play, for how long, and get a small taste of their sound too!
 
-![HOW_TO_USE](https://user-images.githubusercontent.com/20372832/77003323-70966180-695d-11ea-8abe-b362d57135f3.gif)
+As Planner
 
-2. Clone the app
+- Control a newFeed to keep your users up to date on what is happening before and during the festival.
+- Manage your crew, with an option to send them to a the stage that needs them.
+- Keep track of what equipment is being used at any given time, and its location.
+- Option to disable a peice of equipment to be used. 
 
-```
-git clone git@github.com:YOUR_GITHUB_NAME/YOUR_PROJECT_NAME.git
-```
 
-3. cd into your project
+## Tech Stack
 
-```
-cd YOUR_PROJECT_NAME
-```
+**Frontend**
+- JS
+- React
+- Redux
+- Axios
 
-4. install dependencies
+**Backend**
+- Node
+- Express
+- Sequelize
+- PostgreSQL database
 
-```
-npm install
-```
 
-5. Start development server with npm start
+## Contact
 
-```
-npm start
-```
+Richard O'Neill - [LinkedIn](www.linkedin.com/in/richie-o-neill) - richard.oneill.dev@gmail.com
+  
+## Links
 
-## CRA docs
+- [Project board](https://github.com/users/Richie2810/projects/1) 
+- [Wireframes](https://drive.google.com/file/d/1EpjIB-L455P8XaSuozZn8XDqOcuW56Tc/view)
+- [Database model](https://dbdiagram.io/d/60675261ecb54e10c33e77aa)
+- [Backend repository](https://github.com/Richie2810/B-festival-app)
 
-The normal Create React App docs can be found in [CRA_DOCS.md](./CRA_DOCS.md)
+
+## Acknowledgements
+* [Mapbox](https://www.mapbox.com/)
+* [Momentjs](https://momentjs.com/)
+* [@merc/react-timeline](https://www.npmjs.com/package/@merc/react-timeline)
+* [image-map.net](http://image-map.net/)
+
