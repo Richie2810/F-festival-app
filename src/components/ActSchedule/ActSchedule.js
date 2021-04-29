@@ -13,8 +13,10 @@ export default function Act(props) {
     const dispatch = useDispatch()
     const start = moment(props.start, 'hmm').format("HH:mm")
     const end = moment(props.end, 'hmm').format("HH:mm")
+    console.log(props.stage)
     return (
             <ImageEvent
+                style={{backgroundImage:`url(${props.bg})`}}
                 date={`${start} - ${end}
                 ${props.stage}`}
                 text={props.name}

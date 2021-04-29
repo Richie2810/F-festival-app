@@ -24,6 +24,7 @@ export default function ManageCrew() {
                             name={stage.name}
                             isVIP={stage.isVIP}
                             crew={stage.crews}
+                            bg={stage.background}
                             stages={stages}
                         />
                     )

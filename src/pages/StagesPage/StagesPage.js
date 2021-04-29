@@ -9,7 +9,7 @@ export default function StagesPage() {
     const dispatch = useDispatch()
     const [day, setDay] = useState(1)
     const stagesForDay = useSelector(selectStagesInActOrder)
-    //console.log(stagesForDay)
+    console.log(stagesForDay)
 
     useEffect(()=>{
         dispatch(getStages(day))
@@ -17,13 +17,12 @@ export default function StagesPage() {
 
     return (
         <div>
-            <Jumbotron style={{backgroundColor: '#557A95'}}>
+            <Jumbotron style={{backgroundColor: '#557A95'}} className='mt-4'>
                 <Container>
-                    <Card style={{backgroundColor: '#557A95'}}>
                         <Card.Body>
-                            <Card.Title>
+                            <h1 className='text-center'>
                                 Stages
-                            </Card.Title>
+                            </h1>
                             <Card.Text>
                                 Which Day?
                                 <Form.Control
@@ -36,11 +35,10 @@ export default function StagesPage() {
                                 </Form.Control>
                             </Card.Text>
                         </Card.Body>
-                    </Card>
                 </Container>
             </Jumbotron>
             <Container>
-                <Card style={{ backgroundColor:'#bb70cf'}}>
+                <Card style={{backgroundImage: `url(${stagesForDay.background})`}}>
                     <Row>
                         {stagesForDay ? stagesForDay.map(stage => {
                             return (
@@ -49,6 +47,7 @@ export default function StagesPage() {
                                     name={stage.name}
                                     isVIP={stage.isVIP}
                                     acts={stage.acts}
+                                    bg={stage.background}
                                 />
                             )
                         }):null}

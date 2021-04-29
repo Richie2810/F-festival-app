@@ -21,7 +21,7 @@ export default function ActsPage() {
     const history = useHistory()
     const singleAct = useSelector(SelectSingleAct(actId))
     const [imageClicked, setImageClicked] = useState(false)
-    //console.log('this user',singleAct)
+    
     
     const notPlannedButtonText = {
         text:'Add to your Schedule',
@@ -38,7 +38,8 @@ export default function ActsPage() {
     const onActClick = (id) => {
         history.push(`/acts/${id}`)
         setImageClicked(false)
-        window.scrollTo(0,document.body.scrollHeight);
+        window.scrollTo(0,0);
+        // console.log('this user',singleAct.stage.background)
     }
 
     useEffect(()=>{
@@ -47,36 +48,19 @@ export default function ActsPage() {
 
     return (
         <div>
-            <Jumbotron style={{backgroundColor: '#557A95'}}>
+            <Jumbotron style={{backgroundColor: '#557A95'}} className='mt-4'>
                 <h1 className="head">Acts</h1>
             </Jumbotron>
-            <Container className='text-center' >
-                <Card>
-                    <Breadcrumb separator=">" className='text-center' >
-                        {acts ? acts.map(act => {
-                            return (
-                                <Lineup 
-                                    key={act.id}
-                                    name={act.name}
-                                    id={act.id}
-                                    start={act.start_time}
-                                    onActClick={onActClick}
-                                />
-                            )
-                        }):null}
-                    </Breadcrumb>
-                </Card>
-            </Container>
             <Container>
                 {singleAct 
                     ? 
                         <Card>
-                            <Row>
-                                <Col className='text-center' style={{backgroundColor:'#df9f9f'}}>
-                                    <Card.Title>{singleAct.name}</Card.Title>
+                            <Row style={{backgroundImage:`url(${singleAct.stage.background})`}}>
+                                <Col className='text-center' >
+                                    <Card.Title style={{color:'white', fontSize: 36}}>{singleAct.name}</Card.Title>
                                     {imageClicked ? <ReactPlayer url={singleAct.video} />  : <Card.Img style={{width:640, height:360}} src={singleAct.image} alt={singleAct.name} onClick={()=>{setImageClicked(!imageClicked)}}/>}
                                 </Col>
-                                <Col className='text-center' style={{backgroundColor:'#df9f9f'}}>
+                                <Col className='text-center' style={{color:'white'}}>
                                     <Card.Text>Day: {singleAct.day}</Card.Text>
                                     <Card.Text>Stage: {singleAct.stage.name}</Card.Text>
                                     <Card.Text>Starts: {moment(singleAct.start_time, 'hmm').format("HH:mm")}<br></br>
@@ -124,7 +108,23 @@ export default function ActsPage() {
                         </Card>
                     : null}
                 </Container>
-
+            <Container className='mt-4' >
+                <Card>
+                    <Breadcrumb separator=">" className='text-center' >
+                        {acts ? acts.map(act => {
+                            return (
+                                <Lineup 
+                                    key={act.id}
+                                    name={act.name}
+                                    id={act.id}
+                                    start={act.start_time}
+                                    onActClick={onActClick}
+                                />
+                            )
+                        }):null}
+                    </Breadcrumb>
+                </Card>
+            </Container>
         </div>
     )
 }

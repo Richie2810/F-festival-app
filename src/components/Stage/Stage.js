@@ -5,19 +5,19 @@ import './Stage.css'
 
 export default function Stage(props) {
     const acts = props.acts
-    //console.log(props.acts)
+    //console.log(props)
     return (
         <Col className='p-3'>
-            <Container className='stages'>
-                <Card style={{ width: '38rem', backgroundColor: '#d1b2d9'}}>
-                    <Card.Title>
+            <Container className='stages' style={{backgroundImage: `url(${props.bg})`}}>
+                <Card style={{ width: '38rem', backgroundImage: `url(${props.bg})`}}>
+                    <Card.Title style={{color:'white'}}>
                         {props.name}
                     </Card.Title>
                     <Card.Text className='text-muted'>
                         {props.isVIP ? 'This is a VIP Stage' : null}
                     </Card.Text>
                     <Container>
-                        <Card>
+                        <Card >
                             {acts ? props.acts.map(act=>{    
                                 return (
                                     <Acts 

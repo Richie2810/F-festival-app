@@ -3,11 +3,11 @@ import { Card, Col } from 'react-bootstrap'
 import TheCrew from '../TheCrew/TheCrew'
 
 export default function TheStage(props) {
-    //console.log('this is crew',props.crew)
+    console.log('this is crew',props.bg)
     return (
         <Col className='p-2'>
-            <Card className='text-center'style={{backgroundColor:'yellow'}}>
-            <Card.Title className='text-center' >{props.name}</Card.Title>
+            <Card className='text-center'style={{backgroundImage:`url(${props.bg})`}}>
+            <Card.Title className='text-center' style={{color:'white'}}>{props.name}</Card.Title>
                     {props.crew.map(crew => {
                         return (
                             <TheCrew

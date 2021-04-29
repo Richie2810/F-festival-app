@@ -26,9 +26,9 @@ export default function ActStage(props) {
 
     return (
         <Card className='pb-1'>
-            <Row className='m-1 pb-1'>
-                <Col className='m-1'>
-                    <Card.Title>{props.name}</Card.Title>
+            <Row className='m-1 pb-1' style={{backgroundImage:`url(${props.bg})`, color:'white', fontSize:22}}>
+                <Col className='m-1' >
+                    <Card.Title style={{fontSize: 36}}>{props.name}</Card.Title>
                     <Card.Text>Starts: {start}<br></br>Ends: {end}</Card.Text>
                     <Card.Text>Day: {props.day}</Card.Text>
                     {thisUser.token 

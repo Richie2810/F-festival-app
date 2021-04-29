@@ -20,8 +20,8 @@ export default function SingleStagePage() {
 
     return (
         <div>
-            <Jumbotron>
-                <h1>{stage.name}</h1>
+            <Jumbotron style={{backgroundImage:`url(${stage.background})`}}>
+                <h1 style={{color:'white'}}>{stage.name}</h1>
             </Jumbotron>
             <Container>
                 {acts ? acts.map(act => {
@@ -39,6 +39,7 @@ export default function SingleStagePage() {
                             scheduled={act.users}
                             stageVIP={stage.isVIP}
                             stageId={stage.id}
+                            bg={stage.background}
                         />
                     )
                 }):null}

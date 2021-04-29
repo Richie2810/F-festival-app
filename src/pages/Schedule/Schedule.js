@@ -16,7 +16,7 @@ export default function Schedule() {
     const plansFriday = useSelector(selectUsersPlansFriday)
     const plansSaturday = useSelector(selectUsersPlansSaturday)
     const plansSunday = useSelector(selectUsersPlansSunday)
-    //console.log('this is plans',plansFriday)
+    // console.log('this is plans',plansFriday)
 
     useEffect(()=>{
         dispatch(getUsersPlans())
@@ -24,7 +24,7 @@ export default function Schedule() {
 
     return (
         <div>
-            <Jumbotron>
+            <Jumbotron className='mt-4'>
                 <h1 className="head">Schedule</h1>
             </Jumbotron>
             <Container>
@@ -50,6 +50,7 @@ export default function Schedule() {
                                                 image={act.image}
                                                 video={act.video}
                                                 stage={act.stage.name}
+                                                bg={act.stage.background}
                                             />
                                         )
                                     })
@@ -87,6 +88,8 @@ export default function Schedule() {
                                                 image={act.image}
                                                 video={act.video}
                                                 stage={act.stage.name}
+                                                bg={act.stage.background}
+
                                             />
                                         )
                                     })
@@ -124,6 +127,7 @@ export default function Schedule() {
                                                 image={act.image}
                                                 stage={act.stage.name}
                                                 video={act.video}
+                                                bg={act.stage.background}
                                             />
                                         )
                                     })
