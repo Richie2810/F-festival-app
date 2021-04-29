@@ -5,7 +5,7 @@ import MapPng from '../../Images/festival-map.png'
 export default function Map() {
     return (
         <div>
-            <Jumbotron>
+            <Jumbotron style={{backgroundColor:'#557A95'}}>
                 <h1 className="head">Map</h1>
             </Jumbotron>
             <Container>

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
+import background from './Images/background.jpeg'
 
 import Navigation from "./components/Navigation";
 import Loading from "./components/Loading";
@@ -42,7 +43,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <div className="App" style={{backgroundImage:`url(${background})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
       <Navigation />
       {user.isPlanner ? <PlannerNav /> : null}
       <MessageBox />
@@ -67,7 +68,7 @@ function App() {
           <Col>
                 <Row >
                     <Col className='text-center' >
-                        <Card.Title style={{fontSize: 40}}>News Feed</Card.Title>                    
+                        <Card.Title className= 'mt-2' style={{fontSize: 40, backgroundColor: '#557A95'}}>News Feed</Card.Title>                    
                     </Col>
                 </Row>
                     <Row >

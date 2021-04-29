@@ -6,7 +6,7 @@ import NavbarItem from '../Navigation/NavbarItem';
 export default function PlannerNav() {
     return (
         <div>
-            <Navbar bg="primary" expand="lg" >
+            <Navbar style={{backgroundColor:"#557A95"}} expand="lg" >
                 <Navbar.Text className="text-white">Planner Bar</Navbar.Text>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

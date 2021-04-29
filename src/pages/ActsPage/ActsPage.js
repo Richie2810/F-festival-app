@@ -5,7 +5,6 @@ import Lineup from '../../components/Lineup/Lineup'
 import { getActs } from '../../store/acts/actions'
 import { selectActs, SelectSingleAct } from '../../store/acts/selectors'
 import { useHistory, useParams } from 'react-router-dom'
-import './ActsPage.scss'
 import ReactPlayer from 'react-player/lazy'
 import { addToSchedule } from '../../store/plans/actions'
 import { selectUser } from '../../store/user/selectors'
@@ -48,12 +47,12 @@ export default function ActsPage() {
 
     return (
         <div>
-            <Jumbotron>
+            <Jumbotron style={{backgroundColor: '#557A95'}}>
                 <h1 className="head">Acts</h1>
             </Jumbotron>
-            <Container>
+            <Container className='text-center' >
                 <Card>
-                    <Breadcrumb separator=">" >
+                    <Breadcrumb separator=">" className='text-center' >
                         {acts ? acts.map(act => {
                             return (
                                 <Lineup 

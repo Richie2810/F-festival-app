@@ -14,7 +14,7 @@ export default function Navigation() {
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
-    <Navbar bg="lightgrey" expand="lg">
+    <Navbar style={{backgroundColor:'#7395AE'}} expand="lg">
       <Navbar.Brand as={NavLink} to="/">
       Musopolis Festival
       </Navbar.Brand>

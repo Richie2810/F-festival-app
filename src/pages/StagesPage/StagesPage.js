@@ -17,10 +17,9 @@ export default function StagesPage() {
 
     return (
         <div>
-            <Jumbotron style={{ backgroundColor:'#1e5569'}}>
+            <Jumbotron style={{backgroundColor: '#557A95'}}>
                 <Container>
-                    <Card style={{ backgroundColor:'#34baeb', backgroundRepeat:"no-repeat", backgroundSize: "cover", backgroundPosition: 'center'}}>
-                        <Card.Img />
+                    <Card style={{backgroundColor: '#557A95'}}>
                         <Card.Body>
                             <Card.Title>
                                 Stages

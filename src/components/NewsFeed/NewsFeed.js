@@ -9,7 +9,7 @@ export default function NewsFeed(props) {
     const dispatch = useDispatch()
     const user = useSelector(selectUser)
     return (
-            <Card className='mb-2' style={{backgroundColor:'lightgreen'}}>
+            <Card className='mb-2 text-center' style={{backgroundColor:'#7395AE'}}>
                 <Card.Img src={props.image} alt={props.title}/>
                 <Card.Title>{props.title}</Card.Title>
                 <Card.Text>{props.description}</Card.Text>
