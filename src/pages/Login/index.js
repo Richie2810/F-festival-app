@@ -61,7 +61,7 @@ export default function SignUp() {
             Log in
           </Button>
         </Form.Group>
-        <Link to="/signup" style={{ textAlign: "center" }}>
+        <Link to="/signup" style={{ textAlign: "center", color:"black", fontSize:18}}>
           Click here to sign up and purchase a ticket
         </Link>
       </Form>

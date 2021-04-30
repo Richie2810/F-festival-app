@@ -15,7 +15,7 @@ export default function LoggedIn() {
         dispatch(logOut())
         window.location.href = `/`
       }}>
-          {user.name}, Logout
+          {user.name}, LOGOUT
         </Button>
     </>
   );

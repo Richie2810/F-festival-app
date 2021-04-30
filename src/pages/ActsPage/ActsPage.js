@@ -61,10 +61,10 @@ export default function ActsPage() {
                                     {imageClicked ? <ReactPlayer url={singleAct.video} />  : <Card.Img style={{width:640, height:360}} src={singleAct.image} alt={singleAct.name} onClick={()=>{setImageClicked(!imageClicked)}}/>}
                                 </Col>
                                 <Col className='text-center' style={{color:'white'}}>
-                                    <Card.Text>Day: {singleAct.day}</Card.Text>
-                                    <Card.Text>Stage: {singleAct.stage.name}</Card.Text>
-                                    <Card.Text>Starts: {moment(singleAct.start_time, 'hmm').format("HH:mm")}<br></br>
-                                    Ends: {moment(singleAct.end_time, 'hmm').format("HH:mm")}</Card.Text>
+                                    <Card.Text style={{fontSize:20}}><strong>Day {singleAct.day}</strong></Card.Text>
+                                    <Card.Text style={{fontSize:20}}><strong>Stage: {singleAct.stage.name}</strong></Card.Text>
+                                    <Card.Text style={{fontSize:20}}><strong>Starts: {moment(singleAct.start_time, 'hmm').format("HH:mm")}<br></br>
+                                    Ends: {moment(singleAct.end_time, 'hmm').format("HH:mm")}</strong></Card.Text>
                                     {singleAct.stage.isVIP 
                                         ? <Card.Text><strong>This is a VIP Stage</strong></Card.Text>
                                         : null}

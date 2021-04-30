@@ -39,7 +39,7 @@ export default function SignUp() {
   return (
     <Container>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5" style={{backgroundColor:'#557A95'}}>
-        <h1 className="mt-5 mb-5">Signup</h1>
+        <h1 className="mt-5 mb-5">Buy a Ticket</h1>
         <Form.Group controlId="formBasicName">
           <Form.Label>Name</Form.Label>
           <Form.Control
@@ -97,7 +97,7 @@ export default function SignUp() {
             Sign up
           </Button>
         </Form.Group>
-        <Link to="/login">Click here to log in</Link>
+        <Link to="/login" style={{color:"black"}}>Click here to log in</Link>
       </Form>
     </Container>
   );

@@ -14,17 +14,17 @@ export default function Navigation() {
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
   return (
-    <Navbar style={{backgroundColor:'#7395AE'}} expand="lg">
+    <Navbar style={{backgroundColor:'#86b5b3'}} expand="lg">
       <Navbar.Brand as={NavLink} to="/">
       Musopolis Festival
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ width: "100%" }} fill>
-          <NavbarItem path="/map" linkText="Map" />
-          <NavbarItem path="/stages" linkText="Stages" />
-          <NavbarItem path="/acts" linkText="Acts" />
-          {token ? <NavbarItem path="/schedule" linkText="My Schedule" /> : null}
+          <NavbarItem path="/map" linkText="MAP" />
+          <NavbarItem path="/stages" linkText="STAGES" />
+          <NavbarItem path="/acts" linkText="ACTS" />
+          {token ? <NavbarItem path="/schedule" linkText="MY SCHEDULE" /> : null}
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>
